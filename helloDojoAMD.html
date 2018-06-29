@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tutorial: Hello Dojo!</title>
+</head>
+<body>
+  <div id="myDiv">Mouse over to change my background to green.</div>
+
+  <button id="showDiv">showDiv</button>
+
+  <button id="hideDiv">hideDiv</button>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js" data-dojo-config"async:true"></script>
+    <!-- configure Dojo "AMD syntax"-->
+<script>
+      require(["dojo/dom", "dojo/on", "dojo/domReady!"]), function(dom,on){
+        var showButton = dom.byId("showDiv");
+        var hideButton = dom.byId("hideDiv");
+        var div = dom.byId("myDiv");
+
+        on(div, "mouseenter",function(event){
+          div.innerHTML="Move mouse pointer away to change color to white";
+          div.style.background="green";
+        });
+
+        on(div, "mouseleave", function(event){
+          div.style.background="white";
+          div.innerHTML="Mouse over to change my background to green.";
+        });
+
+        on(hideButton, "click", function(event){
+          div.style.display="none";
+        });
+
+        on(showButton, "click", function(event){
+          if(div.style.display=="none"){
+            div.style.display="block";
+          }
+        });
+      };
+    </script>
+    </body>
+</html>

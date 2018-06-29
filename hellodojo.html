@@ -3,11 +3,28 @@
 <head>
     <meta charset="utf-8">
     <title>Tutorial: Hello Dojo!</title>
+    <style>
+      .greetingClass{
+        color:blue;
+      }
+    </style>
 </head>
 <body>
-    <h1 id="greeting">Hello Dojo World!</h1>
-    <!-- configure Dojo -->
-
-    <script src="dojo-release-1.13.0/dojo/dojo.js"></script>
+    <!-- configure Dojo "legacy syntax"-->
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"></script>
+    <script>
+      dojo.ready(
+      //will wait until the dom is done loading,then starts executing the statements
+      function(){
+        var i = dojo.byId("greeting");
+        console.log(i.innerHTML);
+        i.innerHTML="test Hello!";
+      });
+    </script>
+    <h1 id="greeting">Hello Dojo Mendix Widget World!</h1>
+    <h2 name="greetingName"> Hello again!!</h2>
+      <div>
+          <a href="www.google.com">Search Google</a>
+      </div>
     </body>
 </html>
